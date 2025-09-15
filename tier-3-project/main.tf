@@ -87,5 +87,5 @@ data "azurerm_eventhub_namespace" "name" {
 }
 
 output "eventhub_namespace" {
-  value = data.azurerm_eventhub_namespace.name[*].id
+value = { for k , v in data.azurerm_eventhub_namespace.name : k => v.id}
 }
